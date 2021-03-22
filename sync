@@ -1,21 +1,21 @@
 #!/bin/bash
 
-MANIFEST=git://github.com/crdroidandroid/android.git
-BRANCH=11.0
+MANIFEST= https://github.com/du-rex/android_manifest.git
+BRANCH=10-
 
 mkdir -p /tmp/rom
 cd /tmp/rom
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
 repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
-git config --global user.name ItsVixano
-git config --global user.email vixanonew@gmail.com
 
 # Clone local manifest! So that no need to manually git clone repos or change hals, you can use normal git clone or rm and re clone, they will cost little more time, and you may get timeout! Let's make it quit and depth=1 too.
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
 
-git clone https://github.com/AhmedElwakil2004/android_device_xiaomi_mido -b lineage-18.1 device/xiaomi/mido
-git clone https://github.com/AhmedElwakil2004/proprietary_vendor_xiaomi -b lineage-18.1 vendor/xiaomi/
-git clone https://github.com/AhmedElwakil2004/android_kernel_xiaomi_mido -b lineage-18.1 kernel/xiaomi/mido
+git clone https://github.com/TeamExyKings/-android_device_samsung_jackpot2lte -b lineage-17.1 device/samsung/jackpot2lte
+git clone https://github.com/prashantpaddune/android_kernel_samsung_jackpotlte -b master kernel/samsung/universal7885
+
+git clone https://github.com/TeamExyKings/android_device_samsung_universal7885-common -b lineage-17.1 device/samsung/universal7885-common
+git clone https://github.com/nickverse/android_kernel_samsung_universal7885 -b lineage-17.1 kernel/samsung/universal7885-common

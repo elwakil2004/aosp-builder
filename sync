@@ -17,5 +17,5 @@ git config --global user.email vixanonew@gmail.com
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
 
 git clone https://github.com/AhmedElwakil2004/android_device_xiaomi_mido -b lineage-18.1 device/xiaomi/mido
-git clone https://github.com/AhmedElwakil2004/proprietary_vendor_xiaomi -b lineage-18.1 vendor/xiaomi/mido
+git clone https://github.com/AhmedElwakil2004/proprietary_vendor_xiaomi -b lineage-18.1 vendor/xiaomi/
 git clone https://github.com/AhmedElwakil2004/android_kernel_xiaomi_mido -b lineage-18.1 kernel/xiaomi/mido

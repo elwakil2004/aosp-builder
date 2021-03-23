@@ -5,6 +5,7 @@ cd /tmp/rom # Depends on where source got synced
 . build/envsetup.sh
 lunch evolution_mido-userdebug
 export CCACHE_DIR=/tmp/ccache
+export LC_ALL=C
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 ccache -M 20G # It took only 6.4GB for mido

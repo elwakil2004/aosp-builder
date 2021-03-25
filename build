@@ -25,7 +25,9 @@ ccache -z # Clear old stats, so monitor script will provide real ccache statisti
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 up(){
- curl --upload-file $1 https://rombuilder.elwakil.workers.dev/roms/$(basename $1); echo
+ mkdir -p ~/.config/rclone
+echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
+time rclone copy out/target/product/mido/*zip drive:roms -P
 }
 
 tg(){
